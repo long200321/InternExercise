@@ -24,29 +24,39 @@ class Q2 extends StatefulWidget {
 }
 
 class _Q2State extends State<Q2> {
-  int count =0;
-  int result=0;
+  int count=0;
   int total=0;
-  String notice = "Nhap gia tri vao 2 o trong";
+  int result=0;
+  String noitce='';
+
   final TextEditingController _getInputValue1 = TextEditingController();
   final TextEditingController _getInputValue2 = TextEditingController();
 
-  void increase(){
-
+  void caculate(){
     setState(() {
       count=0;
       total=0;
       result=0;
-      int num1 = int.tryParse(_getInputValue1.text)??0;
-      int num2 = int.tryParse(_getInputValue2.text)??0;
-      for(int i=num1;i<=num2;i++){
-        if(i%3==0 && i%2==0){
-          count++;
-
-        }
-        total+=i;
+      int a = int.tryParse(_getInputValue1.text)??0;
+      int b = int.tryParse(_getInputValue2.text)??0;
+      for(int i=a;i<=b;i++){
+        (i%2==0 && i%3==0) ? {
+        count++,
+        total += i
+      } : 0;
       }
+    });
+  }
 
+  void checkInput(){
+    setState(() {
+      if(_getInputValue1.text.isEmpty || _getInputValue2.text.isEmpty)
+      {
+        noitce='Hay nhap 2 so nguyen vao o trong';
+      }
+      else{
+        noitce='';
+      }
     });
   }
 
@@ -106,10 +116,14 @@ class _Q2State extends State<Q2> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(padding: EdgeInsets.all(20)),
-            ElevatedButton(onPressed: increase,style: ElevatedButton.styleFrom(minimumSize: Size(30, 50)), child: Text('Confirm'),),
+            ElevatedButton(onPressed: () =>{
+              checkInput(), caculate(),
+            },style: ElevatedButton.styleFrom(minimumSize: Size(30, 50)), child: Text('Confirm'),),
             Text('Tong phan tu chan chia het cho 3: $count',style: TextStyle(fontSize: 20),),
             Text('Tong phan tu trong mang: $total',style: TextStyle(fontSize: 20),),
-            Text('N/2: $result',style: TextStyle(fontSize: 20),),
+            Text('So Fibonacci N/2: $result',style: TextStyle(fontSize: 20),),
+            Padding(padding: EdgeInsets.all(50)),
+            Text(noitce,style: TextStyle(fontSize: 20),),
 
           ],
         );
