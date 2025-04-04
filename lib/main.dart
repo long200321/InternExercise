@@ -24,8 +24,59 @@ class Q4 extends StatefulWidget {
 }
 
 class _Q4State extends State<Q4> {
+  String noitice='';
+  int result=0;
+  int di=0,dj=0;
   final TextEditingController _input1 = TextEditingController();
   final TextEditingController _input2 = TextEditingController();
+
+  String checkDinhDang(){
+    setState(() {
+      if(_input1.text.isEmpty || _input2.text.isEmpty)
+      {
+        noitice='Nhap du lieu vao 2 o trong';
+      }
+      else{
+        if( (int.tryParse(_input1.text)==null) || (int.parse(_input1.text)<=1 || int.parse(_input1.text)>106))
+        {
+          noitice='Số lượng đoạn đường i: 1<i<107\nKhoảng cách trbinh di: 1<di<10^9';
+        }
+        else{
+          noitice='';
+        }
+      }
+
+    });
+    return noitice;
+
+  }
+
+  void function(){
+    setState(() {
+      if(checkDinhDang()=='')
+      {
+        List<int> khoangCachTB = [];
+        int min=0;
+        khoangCachTB=(_input2.text.split(' ').map(int.parse).toList());
+        khoangCachTB.sort();
+        result=khoangCachTB[1]-khoangCachTB[0];
+        if(khoangCachTB.length<int.parse(_input1.text)){
+          noitice='số lượng đoạn đường phải khớp với bạn đã nhập';
+        }
+        else{
+          for(int i =0;i<khoangCachTB.length;i++)
+            {
+
+              min=(khoangCachTB[i]-khoangCachTB[i+1]).abs();
+              result = result>min? min:result;
+            }
+        }
+      }
+      else{
+        checkDinhDang();
+      }
+    });
+  }
 
   @override
   void dispose(){
@@ -44,7 +95,7 @@ class _Q4State extends State<Q4> {
 
   Column buildInputColumn() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+
       children: [Column(children: [
         Row(children: [
           Expanded(child: Text('Nhập số lượng đoạn đường 1<n<=106',style: TextStyle(fontSize: 20),)),
@@ -56,14 +107,14 @@ class _Q4State extends State<Q4> {
           Expanded(child: TextField(controller: _input2,decoration: InputDecoration(border: OutlineInputBorder()),keyboardType: TextInputType.multiline,maxLines: null,)),
         ],),
         Padding(padding: EdgeInsets.symmetric(vertical: 20)),
-        Row(children: [
+        Row(mainAxisAlignment: MainAxisAlignment.center,children: [Text(noitice,style: TextStyle(fontSize: 20,backgroundColor: Colors.red),)],),
+        Row(mainAxisAlignment: MainAxisAlignment.center,children: [
 
-
-        ],),Padding(padding: EdgeInsets.symmetric(vertical: 20)),
-        Row(children: [
-
-          
+        ElevatedButton(onPressed: ()=>{function()}, child: Text('Confirm')),
         ],),
+        Padding(padding: EdgeInsets.symmetric(vertical: 20)),
+        Text('Đoạn đường $di và $dj có độ lệch nhỏ nhất là:$result',style: TextStyle(fontSize: 20),),
+
       ],)],
     );
   }
