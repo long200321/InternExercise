@@ -1,12 +1,13 @@
+import 'package:ch8_exercise/widgets/drawer_mainpage.dart';
+import 'package:ch8_exercise/widgets/sliver_fav_ex_list.dart';
+import 'package:ch8_exercise/widgets/sliver_introduce_appbar_widget.dart';
+import 'package:ch8_exercise/widgets/sliver_introduce_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/sliver_fav_theory_widget.dart';
 
 class Mainpage extends StatefulWidget {
   const Mainpage({super.key});
-  final String introduceHomePage =
-      "Flutter Exercise là một ứng dụng giúp người dùng lưu trữ, "
-      "quản lý và theo dõi các bài tập một cách hiệu quả. "
-      "Ứng dụng này đặc biệt hữu ích cho những người đang luyện tập"
-      ", học tập hoặc thực hành các kỹ năng cần ghi chép lại.";
 
   @override
   State<Mainpage> createState() => _MainpageState();
@@ -16,61 +17,15 @@ class _MainpageState extends State<Mainpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Flutter Exercise'),
-        leading: Image.asset('assets/images/logo.png'),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Introduce',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              Divider(),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: Text(
-                      widget.introduceHomePage,
-                      style: TextStyle(fontSize: 16),
-                      textAlign: TextAlign.justify,
-                      maxLines: 5,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  Expanded(
-                    child: Hero(
-                      tag: 'picture_1',
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) => Picture1(
-                                    introduce: widget.introduceHomePage,
-                                  ),
-                            ),
-                          );
-                        },
-                        child: Image.asset(
-                          'assets/images/flutter_app_introduce.jpg',
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      endDrawer: DrawerMainpage(),
+      body: SafeArea(child: CustomScrollView(
+        slivers: [
+          const SliverIntroduceAppbarWidget(),
+          const SliverIntroduceWidget(),
+          const SliverFavExList(),
+          const SliverFavTheoryWidget(),
+        ],
+      ),),
     );
   }
 }

@@ -7,11 +7,11 @@ class CloumnRowEx extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Column & Row Exercise'),),
       body: SafeArea(child: SingleChildScrollView(child: Column(children: [
-        const ColumnWidget(),
+ ColumnWidget(),
         Divider(),
-        const RowWidget(),
+         RowWidget(),
         Divider(),
-        const ColumnRowNestedWidget()
+         ColumnRowNestedWidget()
       ],),)),
     );
   }

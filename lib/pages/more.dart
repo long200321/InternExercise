@@ -1,8 +1,11 @@
 import 'package:ch8_exercise/pages/animation_ex.dart';
 import 'package:ch8_exercise/pages/button_ex.dart';
 import 'package:ch8_exercise/pages/cloumn_row_ex.dart';
+import 'package:ch8_exercise/pages/custom_scrollview_ex.dart';
+import 'package:ch8_exercise/pages/grid_ex.dart';
 import 'package:ch8_exercise/pages/image_ex.dart';
 import 'package:ch8_exercise/pages/orientation_ex.dart';
+import 'package:ch8_exercise/pages/stack_ex.dart';
 import 'package:ch8_exercise/pages/tabbar_ex.dart';
 import 'package:flutter/material.dart';
 
@@ -19,176 +22,195 @@ class _MorePageState extends State<MorePage> {
     return Scaffold(
       appBar: AppBar(title: Text('List of exercise')),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
+        child: SingleChildScrollView(child: Column(
+          children: [
+            GestureDetector(
+              child: Container(
+        decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+          child: Row(
             children: [
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 120,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/button_exercise.png'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về Button'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ButtonEx()),
-                        );
-                      },
-                      child: Text('Tìm hiểu'),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 120,
+                height: 100,
+                child: Image.asset('assets/images/button_exercise.png'),
               ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 120,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/image_ex.png'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về Image'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ImageEx()),
-                        );
-                      },
-                      child: Text('Tìm hiểu'),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 120,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/column_row_ex.png'),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về Column&Row'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CloumnRowEx(),
-                          ),
-                        );
-                      },
-                      child: Text('Tìm hiểu'),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 120,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/animation_ex.png'),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về Animation'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AnimationEx(),
-                          ),
-                        );
-                      },
-                      child: Text('Tìm hiểu'),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/tabbar_ex.png'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về TabBar'),
-                    ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                    ElevatedButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>TabbarEx()));
-                    }, child: Text('Tìm hiểu')),
-                  ],
-                ),
-              ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-              Container(
-                decoration: BoxDecoration(border: Border.all(width: 1)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 120,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Image.asset('assets/images/orientation_ex.png'),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      //decoration: BoxDecoration(border: Border.all(width: 1)),
-                      child: Text('\n\nCác bài tập về Orientation'),
-                    ),
-                    ElevatedButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OrientationEx()));
-                    }, child: Text('Tìm hiểu')),
-                  ],
-                ),
-              ),
+              Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+              Text('Bài tập về Button'),
             ],
           ),
         ),
+              onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ButtonEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/image_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về Image'),
+                  ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ImageEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+              
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/column_row_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về Column & Row'),
+                  ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CloumnRowEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+              
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/animation_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về Animation'),
+                    ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AnimationEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+              
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/orientation_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về Orientation'),
+                    ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>OrientationEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+              
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/tabbar_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về TabBar'),
+                    ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>TabbarEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            InkWell(
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/gridview_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về GridView'),
+                  ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>GridEx()));
+              },
+            ),
+            GestureDetector(
+
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/stack_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về Stack'),
+                  ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>StackEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            GestureDetector(
+
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white,border: Border.all(),boxShadow: [BoxShadow(blurRadius: 2)]),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset('assets/images/custom_scrollview_ex.png'),
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Text('Bài tập về CustomScrollView'),
+                  ],
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CustomScrollviewEx()));
+              },
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            ],
+        ),)
       ),
     );
   }

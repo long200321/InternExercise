@@ -12,8 +12,8 @@ class ImageEx extends StatelessWidget {
           Row(
             children: [
               Text('Image from local: '),
-              SizedBox(width: 300,
-              child: Image.asset('assets/images/image_ex.png'),),
+              SizedBox(width: MediaQuery.of(context).size.width/10,
+              child: Image.asset('assets/images/image_ex.png',),),
               Padding(padding: EdgeInsets.symmetric(horizontal: 40)),
               Text('Image from network: '),
               Expanded(child:Image.network('https://antoinegtr.gallerycdn.vsassets.io/extensions/antoinegtr/flutter-icons/1.0.5/1689439648605/Microsoft.VisualStudio.Services.Icons.Default')
