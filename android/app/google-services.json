@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "990827626908",
+    "project_id": "fir-ex-3568b",
+    "storage_bucket": "fir-ex-3568b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990827626908:android:c1bec20321fd0870938859",
+        "android_client_info": {
+          "package_name": "com.example.firebase_ex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1EU8xNNkAAdI4sP4j4Alg6kI6tHY3_W4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
