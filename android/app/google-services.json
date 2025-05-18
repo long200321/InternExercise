@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "441863888484",
+    "project_id": "punworld-app",
+    "storage_bucket": "punworld-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441863888484:android:93cc5080e3effdc86f0971",
+        "android_client_info": {
+          "package_name": "com.example.punworld_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC55lrAaUMIDmolD8fV9zeQx-rPub47G2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
